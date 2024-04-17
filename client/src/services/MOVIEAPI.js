@@ -1,15 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const movieAPIKey = import.meta.env.VITE_REACT_APP_MOVIEAPI_KEY;
-// /movie/popular?language=en-US&page=1
 
 export const movieApi = createApi({
   reducerPath: "movieApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://api.themoviedb.org/3",
-    // prepareHeaders: (headers) => {
-    //   headers.set("Authorization", `Bearer ${movieAPIKey}`);
-    // },
   }),
   endpoints: (builder) => ({
     // Get Genre
@@ -38,6 +34,10 @@ export const movieApi = createApi({
     getMovie: builder.query({
       query: (id) => `/movie/${id}?append_to_response=videos,credits&api_key=${movieAPIKey}`
     }),
+    //* Get Movie Lists
+    getYourMovieList: builder.query({
+      query: ({ listName, acc_id, sessionId, page}) => `/account/${acc_id}/${listName}?api_key=${movieAPIKey}&session_id=${sessionId}&page=${page}`
+    }),
     //* Get Recommendations
     getRecommendations: builder.query({
       query: ({movie_id, list}) => `/movie/${movie_id}/${list}?api_key=${movieAPIKey}`
@@ -57,6 +57,7 @@ export const {
   useGetMoviesQuery,
   useGetGenresQuery,
   useGetMovieQuery,
+  useGetYourMovieListQuery,
   useGetRecommendationsQuery,
   useGetCastInfoQuery,
   useGetMoviesByActorNameQuery,

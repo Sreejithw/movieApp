@@ -1,14 +1,14 @@
+import Movie from "../Movie/Movie";
 import { Grid } from "@mui/material"
 import { styled } from '@mui/material/styles'
-import Movie from "../Movie/Movie";
 
 const StyledGrid = styled(Grid)`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    overflow: auto;
+    overflow: hidden;
+    margin: 10px 0;
     gap: 1rem;
-    height: 100%;
 `;
 
 export const MovieList = ({ movies, movieListLimit }) => {

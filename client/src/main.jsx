@@ -22,6 +22,7 @@ const StyledRootContainer = styled('div')`
       "header header"
       "sidebar main";
   grid-template-columns: 293px;
+  ${'' /* grid-auto-rows: 0px; */}
   background-image: url(${bgImg});
   background-size: cover;
 `;

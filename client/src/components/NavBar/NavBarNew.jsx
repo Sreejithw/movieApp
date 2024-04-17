@@ -42,7 +42,7 @@ const StyledAccountToolBar = styled(Toolbar)`
     justify-content: center;
 `
 
-const StyledAccountBox = styled(Box)(({ theme }) => ({
+const StyledAccountBox = styled(Box)(() => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -206,10 +206,8 @@ const NavBarNew = () => {
         </Box>
         <Box
             component="main"
-            // sx={{ flexGrow: 1, p: 3, width: { sm: `calc(40% - ${drawerWidth}px)` }, height: '100vh', position: "absolute" }}
         >
             <Drawer
-            // container={container}
             variant="temporary"
             open={mobileOpen}
             onTransitionEnd={handleDrawerTransitionEnd}

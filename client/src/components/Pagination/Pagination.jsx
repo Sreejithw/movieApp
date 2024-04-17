@@ -1,4 +1,4 @@
-import { Typography, Button, styled } from "@mui/material";
+import { Pagination as PaginationButton,Stack,Typography, Button, styled } from "@mui/material";
 
 const StyledPaginationContainer = styled('div')`
     display: flex;
@@ -27,6 +27,10 @@ const Pagination = ({currentPage, setPage, totalPages}) => {
         }
     };
 
+    const hadlePagination = (event, page) => {
+        setPage(page);
+    };
+
     if (totalPages === 0) return null;
 
     return (
@@ -35,6 +39,9 @@ const Pagination = ({currentPage, setPage, totalPages}) => {
             <StyledPaginationText variant="h4">{currentPage}</StyledPaginationText>
             <StyledPaginationButton onClick={handleNext} variant="contained" color="secondary" type="button">Next</StyledPaginationButton>
         </StyledPaginationContainer>
+        // <Stack spacing={2}>
+        //  <PaginationButton onChange={hadlePagination} count={totalPages} />
+        // </Stack>
     )
 }
 
