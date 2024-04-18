@@ -16,7 +16,7 @@ const movieAPIKey = import.meta.env.VITE_REACT_APP_MOVIEAPI_KEY;
 const StyledLoadingBox = styled(Box)`
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: baseline
 `;
 
 const StyledMovieInfoBox = styled(Box)`
@@ -27,7 +27,7 @@ const StyledMovieInfoBox = styled(Box)`
 const StyledMovieContainer = styled(Grid)`
   display: flex;
   justify-content: space-around;
-  margin: 10px 0;
+  margin: 4rem 0;
   [theme.breakpoints.down('sm'))]: {
     flex-direction: column;
     flex-wrap: wrap;
@@ -148,7 +148,7 @@ const MovieInfoPage = () => {
   if(isFetching){
     return (
       <StyledLoadingBox>
-        <CircularProgress size="8rem" />
+        <CircularProgress size="4rem" color="secondary"/>
       </StyledLoadingBox>
     )
   }
@@ -201,7 +201,7 @@ const MovieInfoPage = () => {
           <Typography variant="h5" gutterBottom style={{ marginTop: '10px'}}>
             Overview
           </Typography>
-          <Typography style={{ marginTop: '2rem'}}>
+          <Typography style={{ marginTop: '2rem', marginBottom: '2rem'}}>
             {data?.overview}
           </Typography>
           <Typography variant="h5" gutterBottom>

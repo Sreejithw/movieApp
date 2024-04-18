@@ -11,11 +11,12 @@ const StyledGrid = styled(Grid)`
     gap: 1rem;
 `;
 
-export const MovieList = ({ movies, movieListLimit }) => {
+export const MovieList = ({ movies, movieListLimit, excludeFirst }) => {
+    const startIndex = excludeFirst ? 1 : 0;
     return (
         <StyledGrid container>
             {
-                movies.results?.slice(0, movieListLimit).map((movie, index) => (
+                movies.results?.slice(startIndex, movieListLimit).map((movie, index) => (
                     <Movie key={index} movie={movie} index={index} />
                 ))
             }
